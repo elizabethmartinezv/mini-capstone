@@ -6,11 +6,16 @@ class ProductsController < ApplicationController
 
   def laptop_product_method
     @product = Product.first
-    render "laptop_product.json.jbuilder"
+    render "product_renders.json.jbuilder"
   end
 
   def phone_product_method
-    @product = Product.first
-    render "laptop_product.json.jbuilder"
+    @product = Product.second
+    render "product_renders.json.jbuilder"
+  end
+
+  def headphones_product_method
+    @product = Product.third
+    render "product_renders.json.jbuilder"
   end
 end
