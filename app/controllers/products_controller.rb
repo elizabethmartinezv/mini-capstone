@@ -19,13 +19,8 @@ class ProductsController < ApplicationController
     render "product_renders.json.jbuilder"
   end
 
-  def query_params_method
+  def params_method
     @product = Product.find_by(id: params["id"])
-    render "product_renders.json.jbuilder"
-  end
-
-  def segment_params_method
-    @product = Product.find_by(id: params["product"])
     render "product_renders.json.jbuilder"
   end
 end
