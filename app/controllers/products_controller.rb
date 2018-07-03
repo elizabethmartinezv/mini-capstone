@@ -16,8 +16,11 @@ class ProductsController < ApplicationController
       image_url: params[:image_url],
       description: params[:description]
     )
-    @product.save
-    render "show.json.jbuilder"
+    if @product.save
+      render "show.json.jbuilder"
+    else
+      render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -26,8 +29,11 @@ class ProductsController < ApplicationController
     @product.price = params[:price] || @product.price
     @product.image_url = params[:image_url] || @product.image_url
     @product.description = params[:description] || @product.description
-    @product.save
-    render "show.json.jbuilder"
+    if @product.save
+      render "show.json.jbuilder"
+    else
+      render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
