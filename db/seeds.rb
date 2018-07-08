@@ -12,3 +12,6 @@ product = Product.new(name: "phone", price: 900, image_url: "https://store.store
 product.save
 product = Product.new(name: "headphones", price: 150, image_url: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5577/5577872_rd.jpg;maxHeight=640;maxWidth=550", description: "Something you use to listen without other hearing.")
 product.save
+
+Supplier.create(name: "Apple", email: "apple@email.com", phone_number: "123-456")
+Supplier.create(name: "Microsoft", email: "microsoft@email.com", phone_number: "789-112")

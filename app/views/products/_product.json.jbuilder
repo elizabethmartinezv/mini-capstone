@@ -6,3 +6,4 @@ json.description product.description
 json.discount product.discounted?
 json.tax product.tax
 json.total product.total
+json.supplier_info product.supplier
