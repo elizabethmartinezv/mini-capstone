@@ -5,6 +5,9 @@ class Product < ApplicationRecord
   validates :price, numericality: { greater_than: 0 }
   validates :description, length: { in: 10..500 }
 
+  belongs_to :supplier
+  has_many :images
+  
   def discounted?
     price < 200
   end
@@ -15,16 +18,6 @@ class Product < ApplicationRecord
 
   def total
     tax + price
-  end
-
-  # The product belongs the supplier
-  def supplier
-    Supplier.find_by(id: supplier_id)
-  end
-
-  # The product has many images
-  def images
-    Image.where(product_id: id)
   end
 
   def image_urls
