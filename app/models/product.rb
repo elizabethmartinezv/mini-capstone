@@ -21,4 +21,13 @@ class Product < ApplicationRecord
   def supplier
     Supplier.find_by(id: supplier_id)
   end
+
+  # The product has many images
+  def images
+    Image.where(product_id: id)
+  end
+
+  def image_urls
+    images.map { |image| image[:url] }
+  end
 end
