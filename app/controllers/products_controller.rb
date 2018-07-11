@@ -22,9 +22,6 @@ class ProductsController < ApplicationController
       supplier_id: params[:supplier_id]
     )
     if @product.save
-      # To create an image, not restful but convienient
-      # image = Image.new(url: params[:image_url], product_id: @product.id)
-      # image .save
       render "show.json.jbuilder"
     else
       render json: {error: @product.errors.full_messages}, status: :unprocessable_entity
