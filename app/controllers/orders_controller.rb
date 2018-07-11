@@ -20,10 +20,10 @@ class OrdersController < ApplicationController
       total: total
     )
 
-    # if @order.save
-    render "show.json.jbuilder"
-    # else
-    #   render json: {error: @order.errors.full_messages}, status: :unprocessable_entity
-    # end
+    if @order.save
+      render "show.json.jbuilder"
+    else
+      render json: {error: @order.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 end
