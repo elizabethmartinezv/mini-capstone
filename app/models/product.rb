@@ -27,9 +27,7 @@ class Product < ApplicationRecord
     images.map { |image| image[:url] }
   end
 
-  # def category_name
-  #   json.array! each do |category|
-  #     category.name
-  #   end
-  # end
+  def category_name
+    categories.map { |category| category.name}
+  end
 end
