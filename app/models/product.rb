@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   belongs_to :supplier
   has_many :images
   has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products
   
   def discounted?
     price < 200
@@ -24,4 +26,10 @@ class Product < ApplicationRecord
   def image_urls
     images.map { |image| image[:url] }
   end
+
+  # def category_name
+  #   json.array! each do |category|
+  #     category.name
+  #   end
+  # end
 end
