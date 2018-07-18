@@ -1,7 +1,12 @@
 <h1>Product Info</h1>
 <h3>Name: <%= @product.name %></h3>
-<!-- <p>category: <%= @product.categories.first.name %></p>
- --><p>Price: <%= @product.price %></p>
+<% @product.categories.each do |category| %>
+  <p>category: <%= category.name %></p>
+<% end %>
+<p>Price: <%= @product.price %></p>
 <p>Description: <%= @product.description %></p>
 <p>Supplier: <%= @product.supplier.name %></p>
-<!-- <img src="<%= @product.images.first.url %>" alt=""> -->
+<% @product.images.each do |image| %>
+  <img src="<%= image.url %>" alt="" width=300>
+<% end %>
+

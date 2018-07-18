@@ -21,6 +21,6 @@ class ProductsController < ApplicationController
       supplier_id: params[:supplier_id]
       )
     @product.save
-    redirect_to "/products"
+    redirect_to "/products/#{@product.id}"
   end
 end
