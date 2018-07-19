@@ -1,12 +1,15 @@
 <h1>Product Info</h1>
 <h3>Name: <%= @product.name %></h3>
-<% @product.categories.each do |category| %>
-  <p>category: <%= category.name %></p>
+<% @product.categories.map do |category| %>
+  <p>Category: <%= category.name %></p>
 <% end %>
 <p>Price: <%= @product.price %></p>
 <p>Description: <%= @product.description %></p>
 <p>Supplier: <%= @product.supplier.name %></p>
 <% @product.images.each do |image| %>
-  <img src="<%= image.url %>" alt="" width=300>
+ <div><img src="<%= image.url %>" alt="" width=300></div>
 <% end %>
+<a href="/products">Back to all products</a>
+<a href="/products/<%= @product.id %>/edit">Edit product</a>
+<a href="/products/<%= @product.id %>" data-method="delete">Destroy product</a>
 
